@@ -1,0 +1,29 @@
+.c-preguntas {
+    padding: 1rem;
+    font-family: sans-serif;
+    padding-bottom: 70px;
+  }
+  
+  .c-preguntas ol {
+    padding-left: 1.5rem;
+  }
+  
+  .c-preguntas li {
+    margin-bottom: 1rem;
+  }
+  
+  .c-boton {
+    padding: 10px 20px;
+    margin-top: 1rem;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .c-boton:hover {
+    background-color: #0056b3;
+  }
+  

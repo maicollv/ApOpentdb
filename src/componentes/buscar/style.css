@@ -1,0 +1,27 @@
+.c-buscar {
+    padding: 1rem;
+    padding-bottom: 70px;
+  }
+  
+  .c-buscar input {
+    padding: 8px;
+    margin-right: 8px;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .c-buscar button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .c-buscar ul {
+    margin-top: 1rem;
+    list-style: inside;
+  }
+  
