@@ -1,33 +1,59 @@
-import { useState } from 'react'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import './App.css'
+import { supabase } from "./supabase";
+import { AppProvider } from './contexto/contexto';
+
 import Inicio from './componentes/inicio'
 import Buscar from './componentes/buscar'
 import Preguntas from './componentes/preguntas'
 import Categorias from './componentes/Categorias'
 import Favoritas from './componentes/favoritas'
 import Configuracion from './componentes/configuracion'
-import Menu from './componentes/menu';
+import Menu from './componentes/menu'
+import Login from './componentes/login/login';
 
 function App() {
-  
+
+  const [usuario, setUsuario] = useState(null);
+  const [cargando, setCargando] = useState(true);
+
+  useEffect(() => {
+    async function verificarSesion() {
+      const { data: { session } } = await supabase.auth.getSession();
+      setUsuario(session?.user || null);
+      setCargando(false);
+    }
+    verificarSesion();
+
+    // Escucha cambios en la sesión
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setUsuario(session?.user || null);
+    });
+  }, []);
+
+  if (cargando) return <p>Cargando...</p>;
 
   return (
-    <Router>
+    <AppProvider>
+      <Router>
+        {usuario && <Menu />}
 
-      <Menu />
-     
-      <Routes>
-        <Route path="/" element={<Inicio />} />
-        <Route path="/buscar" element={<Buscar />} />
-        <Route path="/preguntas" element={<Preguntas />} />
-        <Route path="/categorias" element={<Categorias />} />
-        <Route path="/favoritas" element={<Favoritas />} />
-        <Route path="/configuracion" element={<Configuracion />} />
-      </Routes>
-   
-    </Router>
-  )
+        <Routes>
+          <Route path="/" element={usuario ? <Inicio /> : <Navigate to="/login" />} />
+          <Route path="/buscar" element={usuario ? <Buscar /> : <Navigate to="/login" />} />
+          <Route path="/preguntas" element={usuario ? <Preguntas /> :<Navigate to="/login" />} />
+          <Route path="/categorias" element={usuario ? <Categorias /> :<Navigate to="/login" />} />
+          <Route path="/favoritas" element={usuario ? <Favoritas /> :<Navigate to="/login" />} />
+          <Route path="/configuracion" element={usuario ? <Configuracion /> :<Navigate to="/login" />} />
+
+          <Route path="/login" element={<Login/>} />
+        </Routes>
+      </Router>
+    </AppProvider>
+
+  
+  );
 }
 
 export default App
