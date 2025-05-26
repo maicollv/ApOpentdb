@@ -1,10 +1,14 @@
-import { useState, useEffect } from 'react';
+// src/components/Preguntas.jsx
+import { useState, useEffect, useContext } from 'react';
+import { useAppContext } from "../../contexto/contexto";
 import './style.css';
 
 function Preguntas() {
   const [preguntas, setPreguntas] = useState([]);
   const [token, setToken] = useState('');
   const [pagina, setPagina] = useState(1);
+  const { favoritos, setFavoritos } = useAppContext();
+
 
   useEffect(() => {
     const obtenerToken = async () => {
@@ -27,7 +31,7 @@ function Preguntas() {
       const res = await fetch(`https://opentdb.com/api.php?amount=10&token=${token}`);
       const data = await res.json();
       if (data && data.results) {
-        setPreguntas(prev => [...prev, ...data.results]); // Acumula las preguntas
+        setPreguntas(prev => [...prev, ...data.results]);
         setPagina(p => p + 1);
       }
     } catch (error) {
@@ -36,15 +40,33 @@ function Preguntas() {
   };
 
   useEffect(() => {
-    if (token) cargarPreguntas(); // Carga las primeras 20 automáticamente
+    if (token) cargarPreguntas();
   }, [token]);
+
+  const toggleFavorito = (pregunta) => {
+    const esFavorito = favoritos.some(p => p.question === pregunta.question);
+    if (esFavorito) {
+      setFavoritos(favoritos.filter(p => p.question !== pregunta.question));
+    } else {
+      setFavoritos([...favoritos, pregunta]);
+    }
+  };
+
+  const esFavorito = (pregunta) => {
+    return favoritos.some(p => p.question === pregunta.question);
+  };
 
   return (
     <div className="c-preguntas">
       <h2>Preguntas</h2>
       <ol>
         {preguntas.map((pregunta, index) => (
-          <li key={index} dangerouslySetInnerHTML={{ __html: pregunta.question }}></li>
+          <li key={index}>
+            <span dangerouslySetInnerHTML={{ __html: pregunta.question }} />
+            <button onClick={() => toggleFavorito(pregunta)}>
+              {esFavorito(pregunta) ? '⭐' : '☆'}
+            </button>
+          </li>
         ))}
       </ol>
 

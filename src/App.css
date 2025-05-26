@@ -1,4 +1,16 @@
 .c-contenido {
     padding-bottom: 70px; /* deja espacio para el menú inferior */
   }
-  
+  /* Tema claro (por defecto) */
+body {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Tema oscuro */
+body.tema-oscuro {
+  background-color: #121212;
+  color: #eee;
+}
+
+/* Puedes agregar estilos para inputs, botones, etc. */
