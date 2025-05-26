@@ -1,36 +1,46 @@
-.c-filtro {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-    padding: 70px;
-  }
-  
-  .c-filtro button {
-    padding: 10px 15px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f0f0f0;
-    cursor: pointer;
-  }
-  
-  .c-filtro button:hover {
-    background-color: #ddd;
-  }
-  
-  .c-filtro button:active {
-    background-color: #ccc;
-  }
-  
-  ul {
-    padding-left: 1.5rem;
-  }
-  
-  li {
-    margin-bottom: 10px;
-    font-size: 18px;
-    list-style: none;
-  }
-  
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: var(--text-preguntas);
+}
+
+select, /* o la clase que uses para categoría */
+.categoria-item {
+  display: block;
+  margin: 0 auto 20px auto;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-categoria);
+  cursor: pointer;
+  background-color: var(--bg-categoria);
+  color: var(--text-categoria);
+  text-align: center;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover con color random - esto se hace con JS, en CSS solo hover fijo */
+select:hover, select:focus,
+.categoria-item:hover {
+  /* el color cambiará con JS para evitar conflicto tema oscuro */
+}
+
+/* Cuadro para preguntas centradas */
+ul {
+  list-style-type: none;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  background-color: var(--bg-preguntas);
+  color: var(--text-preguntas);
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgb(0 0 0 / 0.1);
+  text-align: center;
+}
+
+li {
+  margin-bottom: 15px;
+  font-size: 1rem;
+}

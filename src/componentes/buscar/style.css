@@ -1,27 +1,65 @@
 .c-buscar {
-    padding: 1rem;
-    padding-bottom: 70px;
-  }
-  
-  .c-buscar input {
-    padding: 8px;
-    margin-right: 8px;
-    width: 70%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .c-buscar button {
-    padding: 8px 16px;
-    background-color: #007bff;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .c-buscar ul {
-    margin-top: 1rem;
-    list-style: inside;
-  }
-  
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--card-bg-color, #fff);
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  color: var(--text-color, #222);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.c-buscar h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  color: var(--text-color, #222);
+}
+
+.c-buscar input[type="text"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1.8px solid var(--card-border-color, #ccc);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.c-buscar input[type="text"]:focus {
+  outline: none;
+  border-color: #4caf50;
+}
+
+.c-buscar button {
+  width: 100%;
+  padding: 0.85rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.c-buscar button:hover {
+  background-color: #45a049;
+}
+
+.c-buscar ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+}
+
+.c-buscar li {
+  background-color: var(--bg-color, #f9f9f9);
+  border: 1px solid var(--card-border-color, #ddd);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: var(--text-color, #222);
+}

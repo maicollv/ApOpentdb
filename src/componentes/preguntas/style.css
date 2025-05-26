@@ -1,29 +1,64 @@
 .c-preguntas {
-    padding: 1rem;
-    font-family: sans-serif;
-    padding-bottom: 70px;
-  }
-  
-  .c-preguntas ol {
-    padding-left: 1.5rem;
-  }
-  
-  .c-preguntas li {
-    margin-bottom: 1rem;
-  }
-  
-  .c-boton {
-    padding: 10px 20px;
-    margin-top: 1rem;
-    font-size: 1rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  
-  .c-boton:hover {
-    background-color: #0056b3;
-  }
-  
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--bg-color);
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: var(--text-color);
+}
+
+.c-preguntas h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.c-preguntas ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  text-align: left;
+}
+
+.c-preguntas li {
+  background-color: var(--card-bg-color);
+  border: 1px solid var(--card-border-color);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text-color);
+}
+
+.c-preguntas button {
+  border: none;
+  background-color: transparent;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+  color: var(--text-color);
+}
+
+.c-preguntas button:hover {
+  transform: scale(1.2);
+}
+
+.c-boton {
+  margin-top: 2rem;
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.c-boton:hover {
+  background-color: #45a049;
+}

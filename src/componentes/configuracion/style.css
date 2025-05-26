@@ -1,0 +1,71 @@
+.c-configuracion {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 20px;
+  max-width: 500px;
+  margin: 40px auto;
+}
+
+.c-configuracion h2,
+.c-configuracion h3 {
+  text-align: center;
+  color: #333;
+}
+
+.c-configuracion section {
+  margin-bottom: 30px;
+}
+
+.c-configuracion label {
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.c-configuracion input[type="checkbox"] {
+  transform: scale(1.2);
+  vertical-align: middle;
+}
+
+.c-configuracion select {
+  padding: 5px 8px;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: border-color 0.2s;
+  margin-left: 10px;
+}
+
+.c-configuracion select:focus {
+  border-color: #007bff;
+}
+
+.c-configuracion p {
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Tema oscuro */
+body.tema-oscuro .c-configuracion {
+  background-color: #222;
+  color: #eee;
+  box-shadow: 0 2px 6px rgba(255,255,255,0.1);
+}
+
+body.tema-oscuro .c-configuracion h2,
+body.tema-oscuro .c-configuracion h3 {
+  color: #eee;
+}
+
+body.tema-oscuro .c-configuracion select {
+  background-color: #333;
+  color: #eee;
+  border-color: #555;
+}
+
+body.tema-oscuro .c-configuracion select:focus {
+  border-color: #66aaff;
+}

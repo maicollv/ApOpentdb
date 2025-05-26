@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import './style.css';
 
 function Configuracion() {
   const [mensaje, setMensaje] = useState('');
@@ -11,7 +12,6 @@ function Configuracion() {
     return localStorage.getItem('tamFuente') || 'mediano';
   });
 
-  // Aplica tema oscuro o claro en <body>
   useEffect(() => {
     if (temaOscuro) {
       document.body.classList.add('tema-oscuro');
@@ -21,7 +21,6 @@ function Configuracion() {
     localStorage.setItem('temaOscuro', temaOscuro);
   }, [temaOscuro]);
 
-  // Aplica tamaño de fuente en <body>
   useEffect(() => {
     localStorage.setItem('tamFuente', tamFuente);
     document.body.style.fontSize =
@@ -30,31 +29,28 @@ function Configuracion() {
   }, [tamFuente]);
 
   return (
-    <div style={{ padding: '20px', maxWidth: 500, margin: 'auto' }}>
+    <div className="c-configuracion">
       <h2>Configuración</h2>
 
-      <section style={{ marginBottom: '30px' }}>
+      <section>
         <h3>Preferencias</h3>
-
-        <div style={{ marginBottom: '15px' }}>
+        <div>
           <label>
             <input
               type="checkbox"
               checked={temaOscuro}
               onChange={() => setTemaOscuro(!temaOscuro)}
-              style={{ marginRight: '8px' }}
             />
             Tema oscuro
           </label>
         </div>
 
-        <div style={{ marginBottom: '15px' }}>
+        <div>
           <label htmlFor="selectTamFuente">Tamaño de fuente:</label>
           <select
             id="selectTamFuente"
             value={tamFuente}
             onChange={e => setTamFuente(e.target.value)}
-            style={{ marginLeft: '10px' }}
           >
             <option value="pequeño">Pequeño</option>
             <option value="mediano">Mediano</option>

@@ -2,15 +2,24 @@
     padding-bottom: 70px; /* deja espacio para el menú inferior */
   }
   /* Tema claro (por defecto) */
+/* Tema claro (por defecto) */
 body {
-  background-color: #fff;
-  color: #000;
+  --bg-color: #f9f9f9;
+  --text-color: #222;
+  --card-bg-color: #fff;
+  --card-border-color: #ddd;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 /* Tema oscuro */
 body.tema-oscuro {
-  background-color: #121212;
-  color: #eee;
+  --bg-color: #121212;
+  --text-color: #eee;
+  --card-bg-color: #1e1e1e;
+  --card-border-color: #333;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 /* Puedes agregar estilos para inputs, botones, etc. */

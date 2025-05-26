@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../../supabase";
+import './style.css';
 
 export default function Inicio() {
   const [usuario, setUsuario] = useState(null);
@@ -90,52 +91,52 @@ export default function Inicio() {
   if (!usuario) return <p>Cargando...</p>;
 
   return (
-    <div>
-      <h2>Perfil de Usuario</h2>
-      <label>Nombre:
-        <input name="nombre" value={form.nombre} onChange={handleChange} />
-      </label><br />
-      <label>Correo:
-        <input name="correo" value={form.correo} onChange={handleChange} />
-      </label><br />
-      <label>Fecha de nacimiento:
-        <input type="date" name="fecha_nacimiento" value={form.fecha_nacimiento} onChange={handleChange} />
-      </label><br />
-      <label>Teléfono:
-        <input name="telefono" value={form.telefono} onChange={handleChange} />
-      </label><br />
-      <label>Rol:
-        <input name="roll" value={form.roll} onChange={handleChange} />
-      </label><br />
-      <button onClick={handleUpdate}>Guardar cambios</button>
 
-      <hr />
+   <div className="inicio-container">
+  <h2 className="perfil-titulo">Perfil de Usuario</h2>
 
-      <h3>Agregar imagen</h3>
-      <input
-        type="text"
-        placeholder="URL de la imagen"
-        value={nuevaUrl}
-        onChange={(e) => setNuevaUrl(e.target.value)}
-      />
-      <button onClick={handleAgregarUrl}>Agregar</button>
+  <div className="perfil-formulario">
+    <label>Nombre:
+      <input name="nombre" value={form.nombre} onChange={handleChange} />
+    </label>
+    <label>Correo:
+      <input name="correo" value={form.correo} onChange={handleChange} />
+    </label>
+    <label>Fecha de nacimiento:
+      <input type="date" name="fecha_nacimiento" value={form.fecha_nacimiento} onChange={handleChange} />
+    </label>
+    <label>Teléfono:
+      <input name="telefono" value={form.telefono} onChange={handleChange} />
+    </label>
+    <label>Rol:
+      <input name="roll" value={form.roll} onChange={handleChange} />
+    </label>
+    <button className="boton-guardar" onClick={handleUpdate}>Guardar cambios</button>
+  </div>
 
-      <h3>Imágenes guardadas</h3>
-      <ul>
-        {imagenes.map((img) => (
-          <li key={img.id}>
-            <img src={img.url} alt="Imagen" width="150" />
-            <br />
-            <button onClick={() => handleEliminarImagen(img.id)}>Eliminar</button>
-          </li>
-        ))}
-      </ul>
-            <hr />
-      <h2>Quiero cerrar sesión</h2>
-      <button onClick={handleLogout}>Cerrar sesión</button>
-      {/* saltos de linea para que el menu no tape el boton */}
-      <br /><br /><br /><br /><br />
-    </div>
+  <h3>Agregar imagen</h3>
+  <input
+    type="text"
+    placeholder="URL de la imagen"
+    value={nuevaUrl}
+    onChange={(e) => setNuevaUrl(e.target.value)}
+  />
+  <button onClick={handleAgregarUrl}>Agregar</button>
+
+  <h3>Imágenes guardadas</h3>
+  <div className="imagenes-container">
+    {imagenes.map((img) => (
+      <div key={img.id} className="imagen-item">
+        <img src={img.url} alt="Imagen" />
+        <button onClick={() => handleEliminarImagen(img.id)}>Eliminar</button>
+      </div>
+    ))}
+  </div>
+
+  <button className="cerrar-sesion" onClick={handleLogout}>Cerrar sesión</button>
+  <br /><br /><br /><br /><br />
+</div>
+
   );
 }
 

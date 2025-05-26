@@ -31,7 +31,7 @@ function Favoritas() {
                   dangerouslySetInnerHTML={{ __html: respuesta }}
                   style={{
                     fontWeight: respuesta === pregunta.correct_answer ? 'bold' : 'normal',
-                    color: respuesta === pregunta.correct_answer ? 'green' : 'black',
+                    color: respuesta === pregunta.correct_answer ? 'green' : 'red',
                   }}
                 />
               ))}
