@@ -12,7 +12,7 @@ import Favoritas from './componentes/favoritas'
 import Configuracion from './componentes/configuracion'
 import Menu from './componentes/menu'
 import Login from './componentes/login/login';
-
+import Original from './componentes/original';
 function App() {
 
   const [usuario, setUsuario] = useState(null);
@@ -46,7 +46,7 @@ function App() {
           <Route path="/categorias" element={usuario ? <Categorias /> :<Navigate to="/login" />} />
           <Route path="/favoritas" element={usuario ? <Favoritas /> :<Navigate to="/login" />} />
           <Route path="/configuracion" element={usuario ? <Configuracion /> :<Navigate to="/login" />} />
-
+          <Route path='/original' element={usuario ? <Original /> :<Navigate to="login" />} />
           <Route path="/login" element={<Login/>} />
         </Routes>
       </Router>

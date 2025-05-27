@@ -1,0 +1,50 @@
+.reto {
+  text-align: center;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  background: var(--fondo, #fff);
+  color: var(--texto, #000);
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+.reto.tema-oscuro {
+  --fondo: #1e1e1e;
+  --texto: #eee;
+}
+
+.reto h2, .reto h3 {
+  margin-bottom: 20px;
+}
+
+.reto ul {
+  list-style: none;
+  padding: 0;
+}
+
+.reto li {
+  margin: 10px 0;
+}
+
+.reto button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background-color: #3498db;
+  color: white;
+  transition: background 0.3s;
+}
+
+.reto button:hover {
+  background-color: #2980b9;
+}
+
+.reto .info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  font-weight: bold;
+}

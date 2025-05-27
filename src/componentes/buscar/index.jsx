@@ -63,9 +63,9 @@ function Buscar() {
                 cursor: 'pointer',
                 marginLeft: '10px'
               }}
-              title={esFavorito(pregunta) ? 'Quitar de favoritos' : 'Agregar a favoritos'}
+              
             >
-              {esFavorito(pregunta) ? '⭐' : '☆'}
+              
             </button>
           </li>
         ))}
