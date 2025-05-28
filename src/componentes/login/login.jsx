@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { supabase } from '../../supabase'
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom"
+import './style.css';
 
 function Login() {
   const [email, setEmail] = useState("")
@@ -24,7 +24,7 @@ function Login() {
   }
 
   return (
-    <div>
+    <div className="login-container">
         <h2>Login</h2>
         <form onSubmit={handleLogin}>
           <input

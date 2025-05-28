@@ -13,6 +13,7 @@ import Configuracion from './componentes/configuracion'
 import Menu from './componentes/menu'
 import Login from './componentes/login/login';
 import Original from './componentes/original';
+import Registro from './componentes/registro';
 function App() {
 
   const [usuario, setUsuario] = useState(null);
@@ -47,6 +48,7 @@ function App() {
           <Route path="/favoritas" element={usuario ? <Favoritas /> :<Navigate to="/login" />} />
           <Route path="/configuracion" element={usuario ? <Configuracion /> :<Navigate to="/login" />} />
           <Route path='/original' element={usuario ? <Original /> :<Navigate to="login" />} />
+          <Route path='/registro' element={<Registro />} />
           <Route path="/login" element={<Login/>} />
         </Routes>
       </Router>
